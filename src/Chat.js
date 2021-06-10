@@ -7,11 +7,18 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { InsertEmoticon, Mic } from '@material-ui/icons';
 
 function Chat() {
+    const [input, setInput] = useState('')
 	const [ seed, setSeed ] = useState('');
 
 	useEffect(() => {
 		setSeed(Math.floor(Math.random() * 5000));
 	}, []);
+
+    const sendMessage = (e) => {
+        e.preventDefault();
+
+        setInput('')
+    }
 
 	return (
 		<div className="chat">
@@ -42,8 +49,8 @@ function Chat() {
 			<div className="chat_footer">
 				<InsertEmoticon />
 				<form>
-					<input type="text" placeholder="Type a message" />
-					<button>Send a message</button>
+					<input type="text" placeholder="Type a message" value={input} onChange={e=>setInput(e.target.value)}/>
+					<button type='submit' onClick={sendMessage}>Send a message</button>
 				</form>
 				<Mic />
 			</div>
