@@ -4,6 +4,7 @@ import './Chat.css';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { InsertEmoticon, Mic } from '@material-ui/icons';
 
 function Chat() {
 	const [ seed, setSeed ] = useState('');
@@ -33,13 +34,19 @@ function Chat() {
 				</div>
 			</div>
 			<div className="chat_body">
-				<p className="chat_message">
+				<p className={`chat_message ${true && 'chat_receiver'}`}>
 					<span className="chat_name">chatname</span>asdf
-                    <span className='chat_timestamp'>3:52pm</span>
+					<span className="chat_timestamp">3:52pm</span>
 				</p>
-				<p className="chat_message chat_receiver">asdf</p>
 			</div>
-			<div className="chat_footer" />
+			<div className="chat_footer">
+				<InsertEmoticon />
+				<form>
+					<input type="text" placeholder="Type a message" />
+					<button>Send a message</button>
+				</form>
+				<Mic />
+			</div>
 		</div>
 	);
 }
