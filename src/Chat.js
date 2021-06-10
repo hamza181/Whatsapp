@@ -1,27 +1,27 @@
-import { Avatar, IconButton } from '@material-ui/core'
-import React, { useEffect, useState } from 'react'
-import './Chat.css'
+import { Avatar, IconButton } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import './Chat.css';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 function Chat() {
-
-    const [ seed, setSeed ] = useState('');
+	const [ seed, setSeed ] = useState('');
 
 	useEffect(() => {
 		setSeed(Math.floor(Math.random() * 5000));
 	}, []);
 
-    return (
-        <div className='chat'>
-            <div className='chat_header'>
-                <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`}></Avatar>
-                <div className="chat_headerInfo">
-                    <h3>qwef</h3>
-                    <p>qwef</p>
-                </div>
-                <div className="chat_headerRight"><IconButton>
+	return (
+		<div className="chat">
+			<div className="chat_header">
+				<Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
+				<div className="chat_headerInfo">
+					<h3>qwef</h3>
+					<p>qwef</p>
+				</div>
+				<div className="chat_headerRight">
+					<IconButton>
 						<SearchOutlinedIcon />
 					</IconButton>
 					<IconButton>
@@ -29,12 +29,19 @@ function Chat() {
 					</IconButton>
 					<IconButton>
 						<MoreVertIcon />
-					</IconButton></div>
-            </div>
-            <div className='chat_body'></div>
-            <div className='chat_footer'></div>
-        </div>
-    )
+					</IconButton>
+				</div>
+			</div>
+			<div className="chat_body">
+				<p className="chat_message">
+					<span className="chat_name">chatname</span>asdf
+                    <span className='chat_timestamp'>3:52pm</span>
+				</p>
+				<p className="chat_message chat_receiver">asdf</p>
+			</div>
+			<div className="chat_footer" />
+		</div>
+	);
 }
 
-export default Chat
+export default Chat;
