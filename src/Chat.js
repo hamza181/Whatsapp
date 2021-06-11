@@ -5,10 +5,12 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { InsertEmoticon, Mic } from '@material-ui/icons';
+import { useParams } from 'react-router';
 
 function Chat() {
     const [input, setInput] = useState('')
 	const [ seed, setSeed ] = useState('');
+	const {roomId} = useParams()
 
 	useEffect(() => {
 		setSeed(Math.floor(Math.random() * 5000));
